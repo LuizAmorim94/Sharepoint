@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/column-formatting.schema.json",
+  "debugMode": true,
+  "elmType": "div",
+  "attributes": {
+    "class": "=if(@currentField == 'Done', 'sp-field-severity--good', if(@currentField == 'In progress', 'sp-field-severity--low' ,if(@currentField == 'In review','sp-field-severity--warning', if(@currentField == 'Blocked','sp-field-severity--blocked', ''))"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "style": {
+        "display": "inline-block",
+        "padding": "0 4px"
+      },
+      "attributes": {
+        "iconName": "=if(@currentField == 'Done','CheckMark', if(@currentField == 'In progress', 'Forward', if(@currentField == 'In review', 'Error', if(@currentField == 'Has issues','Warning','')"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "@currentField"
+    }
+  ]
+}
